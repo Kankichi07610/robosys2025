@@ -17,5 +17,8 @@ out=$(echo "10inch" | python3 unit_conv.py)
 out=$(echo "Weight: 2.5lbs" | python3 unit_conv.py)
 [ "${out}" = "Weight: 2.5lbs(約1.13kg)" ] || ng ${LINENO}
 
+out=$(echo "" | python3 unit_conv.py)
+[ "${out}" = "" ] || ng ${LINENO}
+
 [ "$res" = 0 ] && echo OK
 exit $res
