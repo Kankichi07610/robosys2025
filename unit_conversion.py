@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# SPDX-FileCopyrightText: 2025 Kanta Ogasawara
+# SPDX-FileCopyrightText: kankichi07610
 # SPDX-License-Identifier: BSD-3-Clause
 
 import sys
