@@ -17,6 +17,14 @@ out=$(echo "10inch" | python3 unit_conversion)
 out=$(echo "Weight: 2.5lbs" | python3 unit_conversion)
 [ "${out}" = "Weight: 2.5lbs(約1.13kg)" ] || ng ${LINENO}
 
+#フィート
+out=$(echo "Height: 5.9ft" | ./unit_conversion)
+[ "${out}" = "Height: 5.9ft(約179.8cm)" ] || ng ${LINENO}
+
+#温度
+out=$(echo "Temp: 80F" | ./unit_conversion)
+[ "${out}" = "Temp: 80F(約26.7℃)" ] || ng ${LINENO}
+
 #空白のときはスルー
 out=$(echo "" | python3 unit_conversion)
 [ "${out}" = "" ] || ng ${LINENO}
