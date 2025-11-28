@@ -23,22 +23,22 @@ chmod +x unit_conversion
 echo 10inch | ./unit_conversion
 ```
 ## 実行例
-ヤード・ポンド法などの単位を入力します。
+- ヤード・ポンド法などの単位を入力します。
 ```bash
 echo 10inch | ./unit_conversion
 10inch(約25.4cm)
 ```
-大文字・小文字が混在していても変換します。
+- 大文字・小文字が混在していても変換します。
 ```bash
 echo 10InCh | ./unit_conversion
 10inch(約25.4cm)
 ```
-全角文字や2つ以上の単位が混在・表記の違い(inch,in,inchesなど)にも対応し変換します。
+- 全角文字や2つ以上の単位が混在・表記の違い(inch,in,inchesなど)にも対応し変換します。
 ```bash
 echo 重さ:10lbs、長さ10in | ./unit_conversion
 重さ:10lbs(約4.53kg)、長さ10in(約25.4cm)
 ```
-単位がない文はそのまま返します。
+- 単位がない文はそのまま返します。
 ```bash
 echo Hellow world | ./unit_conversion
 Hellow world
