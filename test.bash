@@ -10,15 +10,15 @@ ng () {
 res=0
 
 # インチ
-out=$(echo "10inch" | python3 unit_conversion.py)
+out=$(echo "10inch" | python3 unit_conversion)
 [ "${out}" = "10inch(約25.4cm)" ] || ng ${LINENO}
 
 #ポンド
-out=$(echo "Weight: 2.5lbs" | python3 unit_conversion.py)
+out=$(echo "Weight: 2.5lbs" | python3 unit_conversion)
 [ "${out}" = "Weight: 2.5lbs(約1.13kg)" ] || ng ${LINENO}
 
 #空白のときはスルー
-out=$(echo "" | python3 unit_conversion.py)
+out=$(echo "" | python3 unit_conversion)
 [ "${out}" = "" ] || ng ${LINENO}
 
 [ "$res" = 0 ] && echo OK
