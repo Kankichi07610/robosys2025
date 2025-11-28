@@ -22,8 +22,8 @@ out=$(echo "Height: 5.9ft" | ./unit_conversion)
 [ "${out}" = "Height: 5.9ft(約179.8cm)" ] || ng ${LINENO}
 
 #温度
-out=$(echo "Temp: 80F" | ./unit_conversion)
-[ "${out}" = "Temp: 80F(約26.7℃)" ] || ng ${LINENO}
+out=$(echo "Temp: 80degF" | ./unit_conversion)
+[ "${out}" = "Temp: 80degF(約26.7℃)" ] || ng ${LINENO}
 
 #空白のときはスルー
 out=$(echo "" | python3 unit_conversion)
