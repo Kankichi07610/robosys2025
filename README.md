@@ -7,15 +7,21 @@
 
 - 単位変換くんのリポジトリをクローンします。
 ```bash
-$ git clone git@github.com:Kankichi07610/robosys2025.git
+git clone git@github.com:Kankichi07610/robosys2025.git
 ```
 - ディレクトリに移動します。
 ```bash
-$ cd robosys2025
+cd robosys2025
 ```
 - 実行権限を与えます。
 ```bash
-
+chmod +x unit_conversion
+```
+これにより./unit_conversionとして使用できるようになります。
+- コマンドを実行します。
+```bash
+$ echo "10inch" | ./unit_conversion
+```
 
 
 
