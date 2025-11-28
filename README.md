@@ -9,6 +9,13 @@
 ```bash
 $ git clone git@github.com:Kankichi07610/robosys2025.git
 ```
+- ディレクトリに移動します。
+```bash
+$ cd robosys2025
+```
+- 実行権限を与えます。
+```bash
+
 
 
 
