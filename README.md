@@ -43,6 +43,14 @@ echo 重さ:10lbs、長さ10in | ./unit_conversion
 echo Hellow world | ./unit_conversion
 Hellow world
 ```
-
+## 必要なソフトウェア
+- Python
+ - テスト済みVersion:3.7~3.14
+## テスト環境
+- ubuntu 22.04 LTS
+## ライセンス
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+## 著作権
+- このパッケージのコードの一部は，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです
+　- [ryuichiueda/slides_marp/robosys2025](https://github.com/ryuichiueda/slides_marp/tree/master/robosys2025)
 - © 2025 Kanta Ogasawara
