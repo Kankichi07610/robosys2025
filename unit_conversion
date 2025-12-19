@@ -5,21 +5,34 @@
 import sys
 import re
 
+error_c = 0
+
 def unit_main(text): #入力されたテキストの単位を変換
+
+    global error_c  0
+    error_c = 0
     
     def inch_cm(match):
+        global error_c  0
+        error_c = 0
         val = float(match.group(1))
         return f"{match.group(0)}(約{val * 2.54:.1f}cm)"
 
     def feet_cm(match):
+        global error_c  0
+        error_c = 0
         val = float(match.group(1))
         return f"{match.group(0)}(約{val * 30.48:.1f}cm)"
 
     def lb_kg(match):
+        global error_c  0
+        error_c = 0
         val = float(match.group(1))
         return f"{match.group(0)}(約{val * 0.453:.2f}kg)"
 
     def f_c(match):
+        global error_c  0
+        error_c = 0
         val = float(match.group(1))
         val_2 = (val - 32) * 5 / 9
         return f"{match.group(0)}(約{val_2:.1f}℃)"
@@ -39,11 +52,20 @@ def unit_main(text): #入力されたテキストの単位を変換
     return text
 
 def main():
-    text_2 = sys.stdin.read()
+    try:
+        text_2 = sys.stdin.read()
+    except Exception:
+        sys.exit(1)
+
+    if not text_2:
+        sys.exit(1)
 
     # 変換実行
     c_text = unit_main(text_2)
     
+    if match_count == 0:
+        sys.exit(1)
+
     # 標準出力
     print(c_text, end='')
 
