@@ -9,25 +9,23 @@ ng () {
 
 res=0
 
-# インチ
 out=$(echo "10inch" | python3 unit_conversion)
-[ "${out}" = "10inch(約25.4cm)" ] || ng ${LINENO}
+[ "${out}" = "10inch 25.4cm" ] || ng ${LINENO}
 
-#ポンド
-out=$(echo "Weight: 2.5lbs" | python3 unit_conversion)
-[ "${out}" = "Weight: 2.5lbs(約1.13kg)" ] || ng ${LINENO}
+out=$(echo "Weight: 2.5lb" | python3 unit_conversion)
+[ "${out}" = "Weight: 2.5lb 1.13kg" ] || ng ${LINENO}
 
-#フィート
-out=$(echo "Height: 5.9ft" | ./unit_conversion)
-[ "${out}" = "Height: 5.9ft(約179.8cm)" ] || ng ${LINENO}
+out=$(echo "Height: 5.9feet" | ./unit_conversion)
+[ "${out}" = "Height: 5.9feet 179.8cm" ] || ng ${LINENO}
 
-#温度
-out=$(echo "Temp: 80degF" | ./unit_conversion)
-[ "${out}" = "Temp: 80degF(約26.7℃)" ] || ng ${LINENO}
+out=$(echo "Temp: 80F" | ./unit_conversion)
+[ "${out}" = "Temp: 80F 26.7C" ] || ng ${LINENO}
 
-#空白のときはスルー
-out=$(echo "" | python3 unit_conversion)
-[ "${out}" = "" ] || ng ${LINENO}
+echo "" | python3 unit_conversion > /dev/null 2>&1
+if [ "$?" -eq 0 ]; then
+    ng ${LINENO}
+fi
 
 [ "$res" = 0 ] && echo OK
 exit $res
+
