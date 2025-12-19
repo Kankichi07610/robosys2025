@@ -7,47 +7,39 @@ import re
 
 error_c = 0
 
-def unit_main(text): #入力されたテキストの単位を変換
-
-    global error_c  0
+def unit_main(text):
+    global error_c
     error_c = 0
-    
+
     def inch_cm(match):
-        global error_c  0
-        error_c = 0
+        global error_c
+        error_c += 1
         val = float(match.group(1))
-        return f"{match.group(0)}(約{val * 2.54:.1f}cm)"
+        return f"{match.group(0)} {val * 2.54:.1f}cm"
 
     def feet_cm(match):
-        global error_c  0
-        error_c = 0
+        global error_c
+        error_c += 1
         val = float(match.group(1))
-        return f"{match.group(0)}(約{val * 30.48:.1f}cm)"
+        return f"{match.group(0)} {val * 30.48:.1f}cm"
 
     def lb_kg(match):
-        global error_c  0
-        error_c = 0
+        global error_c
+        error_c += 1
         val = float(match.group(1))
-        return f"{match.group(0)}(約{val * 0.453:.2f}kg)"
+        return f"{match.group(0)} {val * 0.453:.2f}kg"
 
     def f_c(match):
-        global error_c  0
-        error_c = 0
+        global error_c
+        error_c += 1
         val = float(match.group(1))
         val_2 = (val - 32) * 5 / 9
-        return f"{match.group(0)}(約{val_2:.1f}℃)"
+        return f"{match.group(0)} {val_2:.1f}C"
     
-    # インチ
-    text = re.sub(r'(\d+(?:\.\d+)?)\s*(?:inch|in|inches)\b', inch_cm, text, flags=re.IGNORECASE)
-    
-    # フィート
-    text = re.sub(r'(\d+(?:\.\d+)?)\s*(?:ft|feet)\b', feet_cm, text, flags=re.IGNORECASE)
-    
-    # ポンド
-    text = re.sub(r'(\d+(?:\.\d+)?)\s*(?:lb|lbs|pounds)\b', lb_kg, text, flags=re.IGNORECASE)
-
-    # 気温
-    text = re.sub(r'(\d+(?:\.\d+)?)\s*(?:°F|degF|Fahrenheit)\b', f_c, text, flags=re.IGNORECASE)
+    text = re.sub(r'(\d+(?:\.\d+)?)\s*inch\b', inch_cm, text)
+    text = re.sub(r'(\d+(?:\.\d+)?)\s*feet\b', feet_cm, text)
+    text = re.sub(r'(\d+(?:\.\d+)?)\s*lb\b', lb_kg, text)
+    text = re.sub(r'(\d+(?:\.\d+)?)\s*F\b', f_c, text)
 
     return text
 
@@ -60,13 +52,11 @@ def main():
     if not text_2:
         sys.exit(1)
 
-    # 変換実行
     c_text = unit_main(text_2)
     
-    if match_count == 0:
+    if error_c == 0:
         sys.exit(1)
-
-    # 標準出力
+    
     print(c_text, end='')
 
 if __name__ == "__main__":
