@@ -1,5 +1,5 @@
 # 単位変換くん
-文の中に含まれているヤード・ポンド法(インチ・ポンド・フィート・華氏)などの数値の検出し、メートル法(センチ・キログラム)に変換し、元の表記の横に注釈を加えるコマンドです。
+文の中に含まれているヤード・ポンド法 (inch, feet, lb, F) の数値を検出し、メートル法 (cm, kg, C) に変換して横に追記するコマンドです。
 
 ## 使用方法
 
@@ -17,40 +17,47 @@ $ cd robosys2025
 ```bash
 $ chmod +x unit_conversion
 ```
-これにより./unit_conversionとして使用できるようになります。
 - コマンドを実行します。
 ```bash
 $ echo 10inch | ./unit_conversion
 ```
+
 ## 実行例
-- ヤード・ポンド法などの単位を入力します。
+
+### 基本的な変換
+数値を指定された単位 (inch, feet, lb, F) で入力すると、ヤードポンド法・メートル法に換算して出力します。
+
 ```bash
 $ echo 10inch | ./unit_conversion
-10inch(約25.4cm)
+10inch 25.4cm
 ```
-- 大文字・小文字が混在していても変換します。
+
 ```bash
-$ echo 10InCh | ./unit_conversion
-10inch(約25.4cm)
+$ echo "Height: 5.9feet" | ./unit_conversion
+Height: 5.9feet 179.8cm
 ```
-- 全角文字や2つ以上の単位が混在・表記の違い(inch,in,inchesなど)にも対応し変換します。
+
 ```bash
-$ echo 重さ:10lbs、長さ10in | ./unit_conversion
-重さ:10lbs(約4.53kg)、長さ10in(約25.4cm)
+$ echo "Weight: 2.5lb" | ./unit_conversion
+Weight: 2.5lb 1.13kg
 ```
-- 単位がない文はそのまま返します。
+
 ```bash
-$ echo Hellow world | ./unit_conversion
-Hellow world
+$ echo "Temp: 80F" | ./unit_conversion
+Temp: 80F 26.7C
 ```
+
 ## 必要なソフトウェア
 - Python
- - テスト済みバージョン:3.7~3.14
+  - テスト済みバージョン: 3.7~3.12
+
 ## テスト環境
-- ubuntu 22.04 LTS
+- Ubuntu 22.04 LTS
+
 ## ライセンス
-- このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+- このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
+
 ## 著作権
-- このパッケージのコードの一部は，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです
-　- [ryuichiueda/slides_marp/robosys2025](https://github.com/ryuichiueda/slides_marp/tree/master/robosys2025)
+- このパッケージのコードの一部は、下記のスライド (CC-BY-SA 4.0 by Ryuichi Ueda) のものを、本人の許可を得て自身の著作としたものです。
+  - [ryuichiueda/slides_marp/robosys2025](https://github.com/ryuichiueda/slides_marp/tree/master/robosys2025)
 - © 2025 Kanta Ogasawara
