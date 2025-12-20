@@ -25,7 +25,7 @@ $ echo 10inch | ./unit_conversion
 ## 実行例
 
 ### 基本的な変換
-数値を指定された単位 (inch, feet, lb, F) で入力すると、ヤードポンド法・メートル法に換算して出力します。
+数値を指定された単位 (inch, feet, lb, F) で入力すると、メートル法に換算して出力します。
 
 ```bash
 $ echo 10inch | ./unit_conversion
